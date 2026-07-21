@@ -30,7 +30,12 @@ export default {
                         </td>
                         <td class="level" :class="{ 'active': selected == i, 'error': !level }">
                             <button @click="selected = i">
-                                <span class="type-label-lg">{{ level?.name || \`Error (\${err}.json)\` }}</span>
+                                <span
+                                    class="type-label-lg"
+                                    :style="{ color: getRankColor(level) }"
+                                >
+                                    {{ level?.name || `Error (${err}.json)` }}
+                                </span>
                             </button>
                         </td>
                     </tr>
@@ -38,9 +43,7 @@ export default {
             </div>
             <div class="level-container">
                 <div class="level" v-if="level">
-                    <h1 :style="{ color: rankColor }">
-                        {{ level.name }}
-                    </h1>
+                    <h1>{{ level.name }}</h1>
                     <LevelAuthors :author="level.author" :creators="level.creators" :verifier="level.verifier"></LevelAuthors>
                     <iframe class="video" id="videoframe" :src="video" frameborder="0"></iframe>
                     <ul class="stats">
@@ -75,7 +78,7 @@ export default {
                                 <img v-if="record.mobile" :src="\`/assets/phone-landscape\${store.dark ? '-dark' : ''}.svg\`" alt="Mobile">
                             </td>
                             <td class="hz">
-                                <p>{{ record.hz }}Hz</p>
+                                <p>{{ record.hz }}hz</p>
                             </td>
                         </tr>
                     </table>
@@ -203,5 +206,25 @@ export default {
     methods: {
         embed,
         score,
+    
+        getRankColor(level) {
+            const colors = {
+                Copper: "#faa973",
+                Bronze: "#7d2d1b",
+                Iron: "#a39f9e",
+                Silver: "#ccc5c4",
+                Gold: "#d9ce00",
+                Platinum: "#8ef1fa",
+                Diamond: "#49a6fc",
+                Sapphire: "#0079eb",
+                Ruby: "#d40606",
+                Emerald: "#0ee302",
+                Amethyst: "#f130ff",
+                Aquamarine: "#3dabcc",
+                Obsidian: "#262829",
+            };
+            
+            return colors[level?.rank] || "inherit";
+        },
     },
 };
