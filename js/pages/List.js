@@ -34,7 +34,7 @@ export default {
                                     class="type-label-lg"
                                     :style="{ color: getRankColor(level) }"
                                 >
-                                    {{ level?.name || `Error (${err}.json)` }}
+                                    {{ level ? level.name : 'Error (' + err + '.json)' }}
                                 </span>
                             </button>
                         </td>
