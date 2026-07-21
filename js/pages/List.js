@@ -148,10 +148,14 @@ export default {
     return this.list[this.selected]?.[0] || null;
         },
         video() {
+            if (!this.level) {
+                return "";
+            }
+        
             if (!this.level.showcase) {
                 return embed(this.level.verification);
             }
-    
+        
             return embed(
                 this.toggledShowcase
                     ? this.level.showcase
