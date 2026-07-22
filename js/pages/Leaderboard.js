@@ -18,13 +18,13 @@ export default {
             <Spinner></Spinner>
         </main>
         <main v-else class="page-leaderboard-container">
-            <div class="page-leaderboard">
-            
                 <div class="leaderboard-switch">
                     <button @click="$router.push('/qualityboard')">
                         Creator Leaderboard
                     </button>
                 </div>
+                
+                    <div class="page-leaderboard">
             
                 <div class="error-container">
                     <p class="error" v-if="err.length > 0">
