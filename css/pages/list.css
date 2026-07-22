@@ -126,3 +126,20 @@
 .page-list .meta .editors li a:hover {
     text-decoration: underline;
 }
+.level-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.demon-face {
+    width: 96px;
+    height: 96px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.level-header h1 {
+    margin: 0;
+}
