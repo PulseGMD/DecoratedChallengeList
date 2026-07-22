@@ -2,7 +2,9 @@
     "id": 57436521,
     "name": "SampleLevel1",
     "author": "zis08",
-    "creators": ["pulse"],
+    "creators": [
+        "pulse"
+    ],
     "verifier": "zis08",
     "verification": "https://www.youtube.com/watch?v=ISTl28wKSXc",
     "percentToQualify": 56,
