@@ -18,13 +18,20 @@ export default {
             <Spinner></Spinner>
         </main>
         <main v-else class="page-leaderboard-container">
+           <div class="page-leaderboard">
+        
                 <div class="leaderboard-switch">
-                    <button @click="$router.push('/qualityboard')">
+                    <button
+                        @click="$router.push('/leaderboard')">
+                        Player Leaderboard
+                    </button>
+                
+                    <button
+                        class="active"
+                        @click="$router.push('/creatorleaderboard')">
                         Creator Leaderboard
                     </button>
                 </div>
-                
-                    <div class="page-leaderboard">
             
                 <div class="error-container">
                     <p class="error" v-if="err.length > 0">
