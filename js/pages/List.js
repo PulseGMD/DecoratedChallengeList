@@ -168,11 +168,7 @@ export default {
         
        faceImage() {
             if (!this.level?.face) return "";
-        
-            return new URL(
-                `../assets/Demons/${this.level.face}.png`,
-                import.meta.url
-            ).href;
+            return `/Demons/${this.level.face}.png`;
         },
             
         video() {
