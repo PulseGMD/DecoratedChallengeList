@@ -21,7 +21,7 @@ export default {
             <div class="page-leaderboard">
             
                 <div class="leaderboard-switch">
-                    <button @click="$router.push('/creatorleaderboard')">
+                    <button @click="$router.push('/qualityboard')">
                         Creator Leaderboard
                     </button>
                 </div>
