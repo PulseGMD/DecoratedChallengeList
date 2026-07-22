@@ -25,12 +25,12 @@ export default {
             
             <div class="leaderboard-switch">
                     <button
-                        class="active"
                         @click="$router.push('/leaderboard')">
                         Player Leaderboard
                     </button>
                 
                     <button
+                        class="active"
                         @click="$router.push('/qualityboard')">
                         Creator Leaderboard
                     </button>
