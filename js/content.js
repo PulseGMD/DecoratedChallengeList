@@ -128,11 +128,11 @@ export async function fetchLeaderboard() {
 =========================== */
 
 const QUALITY_POINTS = {
-    Normal: 1,
-    Featured: 2,
-    Epic: 3,
-    Legendary: 4,
-    Mythic: 5,
+    normal: 1,
+    featured: 2,
+    epic: 3,
+    legendary: 4,
+    mythic: 5,
 };
 
 export async function fetchCreatorLeaderboard() {
