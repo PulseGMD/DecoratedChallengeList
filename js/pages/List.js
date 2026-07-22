@@ -43,10 +43,25 @@ export default {
             </div>
             <div class="level-container">
                 <div class="level" v-if="level">
-                    <h1 :style="{ color: rankColor }">
-                        {{ level.name }}
-                    </h1>
-                    <LevelAuthors :author="level.author" :creators="level.creators" :verifier="level.verifier"></LevelAuthors>
+                    <div class="level-header">
+                        <img
+                            v-if="level?.face"
+                            class="demon-face"
+                            :src="faceImage"
+                            :alt="level.name"
+                        >
+                
+                        <h1 :style="{ color: rankColor }">
+                            {{ level.name }}
+                        </h1>
+                    </div>
+                
+                    <LevelAuthors
+                        :author="level.author"
+                        :creators="level.creators"
+                        :verifier="level.verifier">
+                    </LevelAuthors>
+                
                     <iframe class="video" id="videoframe" :src="video" frameborder="0"></iframe>
                     <ul class="stats">
                         <li>
@@ -146,10 +161,15 @@ export default {
         roleIconMap,
         store
     }),
-    computed: {
-        level() {
-    return this.list[this.selected]?.[0] || null;
-        },
+        computed: {
+            level() {
+                return this.list[this.selected]?.[0] || null;
+            },
+        
+        faceImage() {
+            if (!this.level?.face) return "";
+                return `/faces/${this.level.face}.png`;
+            },
         video() {
             if (!this.level) {
                 return "";
