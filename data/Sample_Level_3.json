@@ -2,7 +2,7 @@
     "id": 57436521,
     "name": "Sample Level 3",
     "author": "zis08",
-    "creators": [],
+    "creators": ["pulse","zis08"],
     "verifier": "pulse",
     "verification": "https://www.youtube.com/watch?v=ISTl28wKSXc",
     "percentToQualify": "100",
