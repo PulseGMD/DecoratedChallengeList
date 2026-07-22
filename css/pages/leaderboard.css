@@ -92,12 +92,10 @@
     text-decoration: underline;
 }
 
-/* Leaderboard Switch */
-
 .leaderboard-switch {
     display: flex;
     justify-content: center;
-    align-items: center;
+    gap: 12px;
     margin-bottom: 20px;
 }
 
@@ -106,20 +104,23 @@
     color: white;
     border: 2px solid #505050;
     border-radius: 10px;
-    padding: 10px 24px;
-    font-size: 18px;
-    font-weight: bold;
+    padding: 10px 20px;
+    min-width: 180px;
+    font-size: 16px;
+    font-weight: 700;
     cursor: pointer;
-    transition: background 0.2s ease, border-color 0.2s ease,
-        transform 0.15s ease;
+    transition: all 0.2s ease;
 }
 
 .leaderboard-switch button:hover {
-    background: #3d3d3d;
-    border-color: #6a6a6a;
+    background: #404040;
+    border-color: #777;
 }
 
-.leaderboard-switch button:active {
-    transform: scale(0.97);
+.leaderboard-switch button.active {
+    background: #3fa9f5;
+    border-color: #3fa9f5;
+    color: white;
+}
 }
 
