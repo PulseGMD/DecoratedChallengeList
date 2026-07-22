@@ -28,7 +28,7 @@ export default {
                 
                     <button
                         class="active"
-                        @click="$router.push('/qualilyboard')">
+                        @click="$router.push('/qualityboard')">
                         Creator Leaderboard
                     </button>
                 </div>
