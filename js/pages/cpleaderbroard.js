@@ -31,7 +31,7 @@ export default {
                     </button>
                 
                     <button
-                        @click="$router.push('/creatorleaderboard')">
+                        @click="$router.push('/qualityboard')">
                         Creator Leaderboard
                     </button>
                 </div>
