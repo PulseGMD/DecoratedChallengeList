@@ -168,7 +168,7 @@ export default {
         
        faceImage() {
             if (!this.level?.face) return "";
-            return `/Demons/${this.level.face}.png`;
+            return `/assets/Demons/${this.level.face}.png`;
         },
             
         video() {
