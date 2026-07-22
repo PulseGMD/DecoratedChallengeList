@@ -166,10 +166,14 @@ export default {
                 return this.list[this.selected]?.[0] || null;
             },
         
-        faceImage() {
+       faceImage() {
             if (!this.level?.face) return "";
-                return `/faces/${this.level.face}.png`;
-            },
+        
+            return new URL(
+                `../assets/Demons/${this.level.face}.png`,
+                import.meta.url
+            ).href;
+        }
         video() {
             if (!this.level) {
                 return "";
