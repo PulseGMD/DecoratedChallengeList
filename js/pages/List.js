@@ -173,7 +173,8 @@ export default {
                 `../assets/Demons/${this.level.face}.png`,
                 import.meta.url
             ).href;
-        }
+        },
+            
         video() {
             if (!this.level) {
                 return "";
