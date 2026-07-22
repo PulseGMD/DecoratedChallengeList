@@ -19,6 +19,13 @@ export default {
         </main>
         <main v-else class="page-leaderboard-container">
             <div class="page-leaderboard">
+            
+                <div class="leaderboard-switch">
+                    <button @click="$router.push('/creatorleaderboard')">
+                        Creator Leaderboard
+                    </button>
+                </div>
+            
                 <div class="error-container">
                     <p class="error" v-if="err.length > 0">
                         Leaderboard may be incorrect, as the following levels could not be loaded: {{ err.join(', ') }}
