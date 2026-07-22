@@ -122,3 +122,74 @@ export async function fetchLeaderboard() {
     // Sort by total score
     return [res.sort((a, b) => b.total - a.total), errs];
 }
+
+/* ===========================
+   Creator Leaderboard
+=========================== */
+
+const QUALITY_POINTS = {
+    normal: 1,
+    featured: 2,
+    epic: 3,
+    legendary: 4,
+    mythic: 5,
+};
+
+export async function fetchCreatorLeaderboard() {
+    const list = await fetchList();
+
+    const creatorMap = {};
+    const errs = [];
+
+    list.forEach(([level, err]) => {
+        if (err) {
+            errs.push(err);
+            return;
+        }
+
+        const points =
+            QUALITY_POINTS[(level.quality || "").toLowerCase()] || 0;
+
+        if (!level.creators || level.creators.length === 0) {
+            return;
+        }
+
+        level.creators.forEach((creator) => {
+            const user =
+                Object.keys(creatorMap).find(
+                    (u) => u.toLowerCase() === creator.toLowerCase(),
+                ) || creator;
+
+            creatorMap[user] ??= {
+                levels: [],
+            };
+
+            creatorMap[user].levels.push({
+                level: level.name,
+                quality: level.quality,
+                score: points,
+                rank: level.rank,
+                link: level.verification,
+            });
+        });
+    });
+
+    const res = Object.entries(creatorMap).map(([user, data]) => ({
+        user,
+        total: round(
+            data.levels.reduce((sum, level) => sum + level.score, 0),
+        ),
+        levels: data.levels.sort((a, b) => b.score - a.score),
+    }));
+
+    return [
+        res.sort((a, b) => {
+            if (b.total !== a.total) {
+                return b.total - a.total;
+            }
+
+            return a.user.localeCompare(b.user);
+        }),
+        errs,
+    ];
+}
