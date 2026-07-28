@@ -87,9 +87,6 @@ export default {
 
                             <tr v-for="level in entry.levels">
 
-                                <td class="rank">
-                                    <p>{{ level.quality }}</p>
-                                </td>
 
                                 <td class="level">
                                     <a
